@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>El asado, paso a paso</title>
+  <style>
+    :root {
+      --fondo: #ecebe8;       /* ceniza */
+      --texto: #26211d;       /* carbón */
+      --suave: #5d554e;
+      --acento: #a3231b;      /* rojo parrilla */
+      --linea: #cfccc6;
+      --hero-fondo: #26211d;
+      --hero-texto: #f2efe9;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --fondo: #1a1613;
+        --texto: #ece8e1;
+        --suave: #aaa198;
+        --acento: #e0553f;
+        --linea: #3a332d;
+        --hero-fondo: #0f0c0a;
+        --hero-texto: #f2efe9;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--fondo);
+      color: var(--texto);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    a:focus-visible { outline: 3px solid var(--acento); outline-offset: 3px; }
+
+    /* Cabecera: la parrilla dibujada con CSS */
+    header {
+      background: var(--hero-fondo);
+      color: var(--hero-texto);
+      padding: 3rem 1.25rem 0;
+    }
+    .contenedor { max-width: 46rem; margin: 0 auto; }
+    h1 {
+      font-size: clamp(2.4rem, 9vw, 4.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin: 0 0 1rem;
+    }
+    header p { max-width: 34rem; margin: 0 0 1.5rem; font-size: 1.1rem; }
+    nav { display: flex; gap: 1.25rem; flex-wrap: wrap; padding-bottom: 1.75rem; }
+    nav a { font-weight: 600; }
+    .parrilla {
+      height: 3.5rem;
+      background: repeating-linear-gradient(90deg, var(--hero-texto) 0 6px, transparent 6px 26px);
+      opacity: .85;
+      border-top: 6px solid var(--acento);
+    }
+
+    main { padding: 0 1.25rem 3rem; }
+    section { padding-top: 2.75rem; }
+    h2 { font-size: 1.7rem; margin: 0 0 .5rem; letter-spacing: -0.01em; }
+    p.nota { color: var(--suave); margin: 0 0 1.25rem; }
+
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: .7rem .5rem; border-bottom: 1px solid var(--linea); }
+    th { font-size: .9rem; color: var(--suave); font-weight: 600; }
+    td:first-child { font-weight: 700; }
+    .tabla-scroll { overflow-x: auto; }
+
+    ol, ul { padding-left: 1.25rem; margin: 0; }
+    li { margin-bottom: .75rem; }
+    li::marker { color: var(--acento); font-weight: 700; }
+
+    footer { border-top: 1px solid var(--linea); padding: 1.5rem 1.25rem; color: var(--suave); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="contenedor">
+      <h1>El asado, paso a paso</h1>
+      <p>Una guía simple para armar un buen asado: qué cortes elegir, cuánto tiempo lleva cada uno y cómo cuidar el fuego.</p>
+      <nav>
+        <a href="#cortes">Cortes</a>
+        <a href="#pasos">Pasos</a>
+        <a href="#consejos">Consejos</a>
+      </nav>
+    </div>
+    <div class="parrilla" aria-hidden="true"></div>
+  </header>
+
+  <main>
+    <div class="contenedor">
+
+      <section id="cortes">
+        <h2>Cortes y tiempos</h2>
+        <p class="nota">Los tiempos son aproximados y dependen del fuego y del grosor.</p>
+        <div class="tabla-scroll">
+          <table>
+            <thead>
+              <tr><th>Corte</th><th>Cocción</th><th>Fuego</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Tira de asado</td><td>1 h 30 a 2 h</td><td>Medio a suave</td></tr>
+              <tr><td>Vacío</td><td>1 h 30 a 2 h</td><td>Medio a suave</td></tr>
+              <tr><td>Entraña</td><td>15 a 20 min</td><td>Fuerte</td></tr>
+              <tr><td>Chorizo</td><td>25 a 30 min</td><td>Medio</td></tr>
+              <tr><td>Morcilla</td><td>30 a 40 min</td><td>Suave</td></tr>
+              <tr><td>Provoleta</td><td>5 a 8 min</td><td>Medio</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="pasos">
+        <h2>Cómo se hace</h2>
+        <ol>
+          <li>Sacá la carne de la heladera una hora antes, para que no vaya fría a la parrilla.</li>
+          <li>Prendé el fuego con leña o carbón y esperá a que se formen las brasas, unos 40 a 60 minutos.</li>
+          <li>Salá la carne con sal gruesa justo antes de ponerla en la parrilla.</li>
+          <li>Empezá por lo que tarda más (tira de asado y vacío) y dejá para el final lo que se cocina rápido.</li>
+          <li>Da vuelta la carne pocas veces, solo cuando esté sellada de un lado.</li>
+          <li>Dejala reposar unos minutos antes de cortar, así conserva los jugos.</li>
+        </ol>
+      </section>
+
+      <section id="consejos">
+        <h2>Consejos</h2>
+        <ul>
+          <li>Cociná con brasas, no con llamas: las llamas queman por fuera y dejan crudo por dentro.</li>
+          <li>No pinches la carne con el tenedor, porque pierde jugo.</li>
+          <li>Regulá el calor subiendo o bajando la parrilla, o moviendo las brasas.</li>
+          <li>Calculá unos 500 gramos de carne por persona.</li>
+        </ul>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="contenedor">Trabajo práctico: página sobre el asado.</div>
+  </footer>
+
+</body>
+</html>
